@@ -6,8 +6,6 @@ using static UnityEngine.GraphicsBuffer;
 public class CameraFollow : MonoBehaviour
 {
     public Transform targetObject;
-    private Vector3 initalOffset;
-    private Vector3 cameraPosition;
 
     [SerializeField] private int _lookSpeedMouse;
     private Vector2 _rotation;
@@ -16,8 +14,7 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
-        initalOffset = transform.position - targetObject.position;
+
     }
 
     // Update is called once per frame
@@ -37,32 +34,5 @@ public class CameraFollow : MonoBehaviour
         Vector3 newPosition = new Vector3(targetObject.position.x, targetObject.position.y + 1.2f, targetObject.position.z);
 
         transform.position = newPosition - transform.forward * _distanceFromTarget;
-
-        // работает
-        //transform.position = targetObject.position - transform.forward * _distanceFromTarget;
-
-
-        //float h = Input.GetAxis("Horizontal");
-        //float v = Input.GetAxis("Vertical");
-
-        //if (h > 0.5f)
-        //{
-        //    transform.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
-        //}
-        //if (h < -0.5f)
-        //{
-        //    transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
-        //}
-        //if (v > 0.5f)
-        //{
-        //    transform.rotation = Quaternion.Euler(new Vector3(0, -180, 0));
-        //}
-        //if (v < -0.5f)
-        //{
-        //    transform.rotation = Quaternion.Euler(new Vector3(0, -180, 0));
-        //}
-
-        //cameraPosition = targetObject.position + initalOffset;
-        //transform.position = cameraPosition;
     }
 }
