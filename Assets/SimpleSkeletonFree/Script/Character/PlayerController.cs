@@ -7,6 +7,8 @@ namespace SkeletonEditor
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private Transform _cameraDirection;
+        [SerializeField] private int playerSpeed;
+        
         public float mouseRotateSpeed = 0.3f;
 
         private Animator animator;
@@ -133,7 +135,7 @@ namespace SkeletonEditor
             //    }
             //}
 
-            Vector3 moving = new Vector3(h, 0, v);
+            Vector3 moving = new Vector3(h * playerSpeed, 0, v * playerSpeed);
 
             if (Mathf.Abs(h) > 0.001f)
                 v = 0;

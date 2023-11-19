@@ -20,7 +20,6 @@ public class EnemyMoving : MonoBehaviour
         Debug.Log(_target.name);
 
 
-        // пусть враги появляются в радиусе 10 метров от стартовой позиции
         transform.position = new Vector3(Random.Range(-10, 10), 0.0f, Random.Range(-10, 10));
     }
 
@@ -44,7 +43,6 @@ public class EnemyMoving : MonoBehaviour
         }
         else
         {
-            // если карутина не запущена
             if (!_destroyInProgress)
             {
                 StartCoroutine(DeathCoroutine());
