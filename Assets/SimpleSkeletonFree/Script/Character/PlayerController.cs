@@ -9,7 +9,7 @@ namespace SkeletonEditor
         [SerializeField] private Transform _cameraDirection;
         [SerializeField] private int playerSpeed;
         
-        public float mouseRotateSpeed = 0.3f;
+        public float mouseRotateSpeed;
 
         private Animator animator;
         private Quaternion initRotation;
