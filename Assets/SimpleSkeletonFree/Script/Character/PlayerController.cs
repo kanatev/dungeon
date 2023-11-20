@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SkeletonEditor
@@ -8,6 +9,12 @@ namespace SkeletonEditor
     {
         [SerializeField] private Transform _cameraDirection;
         [SerializeField] private int playerSpeed;
+        
+        private int healthPoints = 100;
+        public int HealthPoints => healthPoints;
+        
+        
+        // [SerializeField] private 
         
         public float mouseRotateSpeed;
 
@@ -148,6 +155,22 @@ namespace SkeletonEditor
 
 
             transform.Translate(moving * Time.deltaTime);
+        }
+        void OnCollisionEnter(Collision other)
+        {
+            // Debug.Log("Entered collision with " + objectName.tag);
+            // if (other.gameObject.CompareTag("enemy_tag"))
+            // {
+            //     healthPoints -= 1;
+            // }
+        }
+
+        private void OnCollisionStay(Collision other)
+        {
+            if (other.gameObject.CompareTag("enemy_tag"))
+            {
+                healthPoints -= 1;
+            }
         }
     }
 }

@@ -5,18 +5,19 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject _enemyPrefab;
+    [SerializeField] private int enemyCount;
     private GameObject[] _enemies;
-    private int _enemyCount;
-    public int EnemyCount => _enemyCount;
+    //private int _enemyCount;
+    public int EnemyCount => enemyCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        _enemyCount = 20;
-        _enemies = new GameObject[5];
+        _enemies = new GameObject[enemyCount];
         for (int i = 0; i < _enemies.Length; i++)
         {
             _enemies[i] = Instantiate(_enemyPrefab);
+            
         }
     }
 
