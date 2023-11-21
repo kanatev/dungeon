@@ -18,28 +18,20 @@ public class EnemyMoving : MonoBehaviour
         Debug.Log(gameObjects.Length);
         _target = gameObjects[0];
         Debug.Log(_target.name);
-
-
         transform.position = new Vector3(Random.Range(-10, 10), 0.0f, Random.Range(-10, 10));
     }
 
     void Update()
     {
-
         Vector3 targetDirection = _target.transform.position - transform.position;
-
         float singleStep = 3 * Time.deltaTime;
-
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-
         transform.rotation = Quaternion.LookRotation(newDirection);
 
         if (Vector3.Distance(transform.position, _target.transform.position) > 1.0f)
         {
-
             var step = _monsterSpeed * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, step);
-
         }
         else
         {
@@ -47,9 +39,7 @@ public class EnemyMoving : MonoBehaviour
             {
                 StartCoroutine(DeathCoroutine());
             }
-            
         }
-
     }
 
     IEnumerator DeathCoroutine()

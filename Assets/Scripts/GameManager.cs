@@ -15,13 +15,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text labelExpCounter;
     [SerializeField] private TMP_Text labelHealthCounter;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         labelExpCounter.SetText(swordWeapon.CollectedExp.ToString());

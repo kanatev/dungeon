@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
+    [SerializeField] private Animator anim;
     private int collectedExp = 0;
 
     public int CollectedExp => collectedExp;
@@ -25,8 +26,12 @@ public class Sword : MonoBehaviour
         // Debug.Log("Entered collision with " + objectName.tag);
         if (objectName.CompareTag("enemy_tag"))
         {
-            collectedExp += 1;
-            Destroy(objectName.gameObject);
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack1h1"))
+            {
+                collectedExp += 1;
+                Destroy(objectName.gameObject);
+            }
+            
         }
     }
 }
